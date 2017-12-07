@@ -1,3 +1,9 @@
+## Contacts List Project
+
+This repo is a code-along with the first project in the React Nanodegree program.
+
+Most of the commits in this repository correspond to videos in the program.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
