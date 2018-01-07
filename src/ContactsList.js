@@ -15,9 +15,15 @@ class ContactList extends Component {
         query: ''
     }
 
-    udpateQuery(queryText) {
+    udpateQuery = (queryText) => {
         this.setState({
             query: queryText
+        })
+    }
+
+    resetQuery = () => {
+        this.setState({
+            query: ''
         })
     }
 
@@ -44,7 +50,16 @@ class ContactList extends Component {
                         value={query}
                         onChange={(event) => this.udpateQuery(event.target.value)}
                     />
-                </div>   
+                </div>
+                <span>
+                    {showingContacts.length !== contacts.length && (
+                        <div className="showing-contacts" >
+                            <span> showing {showingContacts.length} of {contacts.length} </span>
+                            <button onClick={this.resetQuery} > Show all </button>
+                        </div>
+                        
+                    )}
+                </span>
                 <ol className="contact-list" >
                     {showingContacts.map(contact => (
                         <li key={contact.id} className="contact-list-item"  >
