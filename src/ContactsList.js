@@ -50,14 +50,18 @@ class ContactList extends Component {
                         value={query}
                         onChange={(event) => this.udpateQuery(event.target.value)}
                     />
+                    <a 
+                        href="#create"
+                        className="add-contact"
+                        onClick={() => this.props.onNavigate()}
+                    > Add Contact  </a>
                 </div>
                 <span>
                     {showingContacts.length !== contacts.length && (
                         <div className="showing-contacts" >
                             <span> showing {showingContacts.length} of {contacts.length} </span>
                             <button onClick={this.resetQuery} > Show all </button>
-                        </div>
-                        
+                        </div>                        
                     )}
                 </span>
                 <ol className="contact-list" >
