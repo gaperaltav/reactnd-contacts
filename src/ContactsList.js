@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
+import { Link } from 'react-router-dom';
+import escapeRegExp from 'escape-string-regexp';
+import sortBy from 'sort-by';
 import './index.css';
 
 class ContactList extends Component {
@@ -16,15 +17,11 @@ class ContactList extends Component {
     }
 
     udpateQuery = (queryText) => {
-        this.setState({
-            query: queryText
-        })
+        this.setState({ query: queryText })
     }
 
     resetQuery = () => {
-        this.setState({
-            query: ''
-        })
+        this.setState({ query: '' })
     }
 
     render() {
@@ -50,18 +47,17 @@ class ContactList extends Component {
                         value={query}
                         onChange={(event) => this.udpateQuery(event.target.value)}
                     />
-                    <a 
-                        href="#create"
-                        className="add-contact"
-                        onClick={() => this.props.onNavigate()}
-                    > Add Contact  </a>
+                    <Link
+                        to="/create"
+                        className="add-contact"                       
+                    > Add Contact  </Link>
                 </div>
                 <span>
                     {showingContacts.length !== contacts.length && (
                         <div className="showing-contacts" >
                             <span> showing {showingContacts.length} of {contacts.length} </span>
                             <button onClick={this.resetQuery} > Show all </button>
-                        </div>                        
+                        </div>
                     )}
                 </span>
                 <ol className="contact-list" >
@@ -79,7 +75,6 @@ class ContactList extends Component {
             </div>
         )
     }
-
 }
 
 export default ContactList;
